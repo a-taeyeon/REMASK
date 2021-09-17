@@ -42,14 +42,9 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity
-            android:name=".MyPointListActivity"
-            android:exported="true">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
+        <activity android:name=".MyPointListActivity"/>
+        <activity android:name=".MySettingsActivity"/>
+        <activity android:name=".MyInfoUpdateActivity"/>
     </application>
 
 </manifest>
