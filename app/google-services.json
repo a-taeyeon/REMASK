@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "924920757364",
+    "project_id": "remask-fd5c5",
+    "storage_bucket": "remask-fd5c5.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:924920757364:android:b1df36d31250b34e3ce521",
+        "android_client_info": {
+          "package_name": "com.kbsc.remask"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "924920757364-fsidteqpqh9i43nkqgms5e6568jshg1g.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB2mgGwDj6JK7lfkjOiXa1xTTUfRll_Ozk"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "924920757364-fsidteqpqh9i43nkqgms5e6568jshg1g.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
