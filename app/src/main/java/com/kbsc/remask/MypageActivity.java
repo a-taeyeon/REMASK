@@ -18,6 +18,9 @@ public class MypageActivity extends AppCompatActivity {
 
     public void onClick(View v){
         switch (v.getId()){
+            case R.id.ivMypage_settings:
+                intent = new Intent(MypageActivity.this, MySettingsActivity.class);
+                break;
             case R.id.ivMypage_mycart:
                 intent = new Intent(MypageActivity.this, MyCartActivity.class);
                 break;
