@@ -2,15 +2,13 @@ package com.kbsc.remask;
 
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
 import android.widget.EditText;
 import android.widget.TextView;
-import android.widget.Toolbar;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.google.android.gms.tasks.OnCompleteListener;
-import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -28,13 +26,15 @@ public class MyInfoUpdateActivity extends AppCompatActivity {
     private DatabaseReference dbRef;
 
     String userEmail = "";
-    String dbKey = "";
+    String dbUserId = "";
 
+    TextView tvName;
     TextView tvEmail;
     TextView tvPhone;
     EditText etPw;
     TextView tvBtnChangePw;
     TextView tvRegisterSeller;
+    TextView tvSeller;
     TextView tvSellerNum;
 
     @Override
@@ -45,30 +45,44 @@ public class MyInfoUpdateActivity extends AppCompatActivity {
         firebaseAuth = firebaseAuth.getInstance();
         dbRef = FirebaseDatabase.getInstance().getReference();
 
+        tvName = (TextView) findViewById(R.id.tvUpdateInfo_userName);
         tvEmail = (TextView) findViewById(R.id.tvUpdateInfo_email);
         tvPhone = (TextView) findViewById(R.id.tvUpdateInfo_phone);
         etPw = (EditText) findViewById(R.id.etUpdateInfo_newPw);
         tvBtnChangePw = (TextView) findViewById(R.id.tvUpdateInfo_chpw);
         tvRegisterSeller = (TextView) findViewById(R.id.tvUpdateInfo_registerSeller);
+        tvSeller = (TextView) findViewById(R.id.tvUpdateInfo_isSeller);
         tvSellerNum = (TextView) findViewById(R.id.tvUpdateInfo_sellerNum);
 
+        setUserInfo();
+    }
+
+    private void setUserInfo(){
         userEmail = firebaseAuth.getCurrentUser().getEmail();
         Log.d(TAG, userEmail);
         StringTokenizer stk = new StringTokenizer(userEmail, "@");
-        dbKey = stk.nextToken();
-        Log.d(TAG, "dbKey: " + dbKey);
+        dbUserId = stk.nextToken();
+        Log.d(TAG, "dbKey: " + dbUserId);
 
-
-        dbRef.child("users").child(dbKey).addValueEventListener(new ValueEventListener() {
+        dbRef.child("users").child(dbUserId).addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 User user = dataSnapshot.getValue(User.class);
                 Log.d(TAG, "user: " + user.toString());
+                String name = user.getUserName();
                 String phone = user.getPhone();
+                boolean seller = user.isSeller();
 
                 //텍스트뷰에 받아온 문자열 대입하기
+                tvName.setText(name);
                 tvEmail.setText(userEmail);
                 tvPhone.setText(phone);
+
+                if(seller){
+                    tvSeller.setVisibility(View.VISIBLE);
+                    tvSellerNum.setVisibility(View.VISIBLE);
+                    tvSellerNum.setText(user.getSellerNum());
+                }
             }
 
             @Override
