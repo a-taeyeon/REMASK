@@ -70,7 +70,7 @@ public class SignupActivity extends AppCompatActivity {
 
 
     private void createNewUser(String name, String email, String pw, String phone){
-        User user = new User(name, email, pw, phone, false);
+        User user = new User(name, email, pw, phone, false, "");
         Log.d(TAG, "user: " + user.toString());
 
         firebaseAuth.createUserWithEmailAndPassword(email, pw)
@@ -85,7 +85,7 @@ public class SignupActivity extends AppCompatActivity {
                             StringTokenizer stk = new StringTokenizer(email,"@");
                             dbRef.child("users").child(stk.nextToken()).setValue(user);
 
-                            Intent intent = new Intent(SignupActivity.this, MainActivity.class);
+                            Intent intent = new Intent(SignupActivity.this, MypageActivity.class);
                             startActivity(intent);
                             finish();
                             Toast.makeText(SignupActivity.this, "회원가입에 성공하셨습니다.", Toast.LENGTH_SHORT).show();

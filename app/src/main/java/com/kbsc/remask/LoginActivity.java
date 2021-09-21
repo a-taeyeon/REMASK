@@ -44,7 +44,7 @@ public class LoginActivity extends AppCompatActivity {
                 firebaseAuth.signInWithEmailAndPassword(email, pw)
                         .addOnCompleteListener(LoginActivity.this, task -> {
                             if (task.isSuccessful()) {
-                                Intent intent = new Intent(LoginActivity.this, MainActivity.class);
+                                Intent intent = new Intent(LoginActivity.this, MypageActivity.class);
                                 startActivity(intent);
                             } else {
                                 tvErrorMsg.setVisibility(View.VISIBLE);

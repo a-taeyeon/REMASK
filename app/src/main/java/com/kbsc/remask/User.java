@@ -9,6 +9,7 @@ public class User {
     private String password;
     private String phone;
     private boolean seller;
+    private String sellerNum;
 
     public User(){}
 
@@ -18,6 +19,15 @@ public class User {
         this.password = password;
         this.phone = phone;
         this.seller = seller;
+    }
+
+    public User(String userName, String email, String password, String phone, boolean seller, String sellerNum) {
+        this.userName = userName;
+        this.email = email;
+        this.password = password;
+        this.phone = phone;
+        this.seller = seller;
+        this.sellerNum = sellerNum;
     }
 
     public String getUserName() {
@@ -52,12 +62,20 @@ public class User {
         this.phone = phone;
     }
 
-    public boolean getSeller() {
+    public boolean isSeller() {
         return seller;
     }
 
     public void setSeller(boolean seller) {
         this.seller = seller;
+    }
+
+    public String getSellerNum() {
+        return sellerNum;
+    }
+
+    public void setSellerNum(String sellerNum) {
+        this.sellerNum = sellerNum;
     }
 
     @Override
@@ -68,6 +86,7 @@ public class User {
                 ", password='" + password + '\'' +
                 ", phone='" + phone + '\'' +
                 ", seller=" + seller +
+                ", sellerNum='" + sellerNum + '\'' +
                 '}';
     }
 }
