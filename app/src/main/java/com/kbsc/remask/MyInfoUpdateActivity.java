@@ -2,6 +2,7 @@ package com.kbsc.remask;
 
 import android.os.Bundle;
 import android.util.Log;
+import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toolbar;
 
@@ -17,6 +18,8 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
+import org.w3c.dom.Text;
+
 import java.util.StringTokenizer;
 
 public class MyInfoUpdateActivity extends AppCompatActivity {
@@ -29,6 +32,9 @@ public class MyInfoUpdateActivity extends AppCompatActivity {
 
     TextView tvEmail;
     TextView tvPhone;
+    EditText etPw;
+    TextView tvBtnChangePw;
+    TextView tvRegisterSeller;
     TextView tvSellerNum;
 
     @Override
@@ -41,6 +47,9 @@ public class MyInfoUpdateActivity extends AppCompatActivity {
 
         tvEmail = (TextView) findViewById(R.id.tvUpdateInfo_email);
         tvPhone = (TextView) findViewById(R.id.tvUpdateInfo_phone);
+        etPw = (EditText) findViewById(R.id.etUpdateInfo_newPw);
+        tvBtnChangePw = (TextView) findViewById(R.id.tvUpdateInfo_chpw);
+        tvRegisterSeller = (TextView) findViewById(R.id.tvUpdateInfo_registerSeller);
         tvSellerNum = (TextView) findViewById(R.id.tvUpdateInfo_sellerNum);
 
         userEmail = firebaseAuth.getCurrentUser().getEmail();
