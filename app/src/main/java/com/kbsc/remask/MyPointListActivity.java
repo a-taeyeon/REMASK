@@ -23,6 +23,7 @@ import com.google.firebase.database.ValueEventListener;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.Collections;
 import java.util.Date;
 import java.util.StringTokenizer;
 import java.util.UUID;
@@ -88,8 +89,8 @@ public class MyPointListActivity extends AppCompatActivity {
                     before = "1year";
                     break;
             }
+            setDate(before);
         });
-        setDate(before);
 
         dbUserId = setUserInfo();
 
@@ -105,10 +106,9 @@ public class MyPointListActivity extends AppCompatActivity {
 
         /* adapt data */
         list = new ArrayList<MyPoint>();
-//        list.add(new MyPoint(dbUserId, "마스크기부", "2021-09-33", 30));
         getPointList(dbUserId, before);
-        Log.d(TAG, "!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!" + list.toString());
-        Log.d(TAG, "pointSum in onCreate(): " + pointSum);
+        Log.d(TAG, "!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!" + list.toString()); //[]
+        Log.d(TAG, "pointSum in onCreate(): " + pointSum); //0
         upRecyclerAdapter.setPointList(list);
     }
 
@@ -180,12 +180,32 @@ public class MyPointListActivity extends AppCompatActivity {
                     if(myPoint.getUser_id().equalsIgnoreCase(userId)){
                         Log.d(TAG, "myPoint: " + myPoint);
                         pointSum += myPoint.getValue();
+
+                        Calendar cal = Calendar.getInstance();
+                        switch (before){
+                            case "1week":
+                                cal.add(Calendar.DATE, -7);
+                                break;
+                            case "1month":
+                                cal.add(Calendar.MONTH, -1);
+                                break;
+                            case "3month":
+                                cal.add(Calendar.MONTH, -3);
+                                break;
+                            case "6month":
+                                cal.add(Calendar.MONTH, -6);
+                                break;
+                            case "1year":
+                                cal.add(Calendar.YEAR, -1);
+                                break;
+                        }
+
                         list.add(new MyPoint(i++, myPoint.getUser_id(), myPoint.getContent(), myPoint.getDate(), myPoint.getValue()));
                     }
                 }
                 Log.d(TAG, "pointSum in onDataChange: " + pointSum);
                 tvPointSum.setText(String.valueOf(pointSum));
-
+                Collections.sort(list, new MyPointComparator());
                 upRecyclerAdapter.setPointList(list);
             }
 

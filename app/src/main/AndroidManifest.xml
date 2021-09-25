@@ -45,6 +45,7 @@
         <activity android:name=".MyPointListActivity"/>
         <activity android:name=".MySettingsActivity"/>
         <activity android:name=".MyInfoUpdateActivity"/>
+        <activity android:name=".MyCartActivity"/>
     </application>
 
 </manifest>
