@@ -2,6 +2,9 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.kbsc.remask">
 
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -46,6 +49,8 @@
         <activity android:name=".MySettingsActivity"/>
         <activity android:name=".MyInfoUpdateActivity"/>
         <activity android:name=".MyCartActivity"/>
+        <activity android:name=".MyOrderListActivity"/>
+        <activity android:name=".MyOrderDetailActivity"/>
     </application>
 
 </manifest>

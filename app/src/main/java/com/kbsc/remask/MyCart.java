@@ -3,6 +3,7 @@ package com.kbsc.remask;
 import java.io.Serializable;
 
 public class MyCart implements Serializable {
+    //(추가) 이미지 관련 변수
 
     private String prdtName;
     private String prdtAbbr;
