@@ -12,6 +12,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.google.firebase.database.annotations.NotNull;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 
 public class MyPointAdapter extends RecyclerView.Adapter<MyPointAdapter.ViewHolder>{
@@ -59,7 +60,10 @@ public class MyPointAdapter extends RecyclerView.Adapter<MyPointAdapter.ViewHold
 
         void onBind(MyPoint item){
             content.setText(item.getContent());
-            date.setText(item.getDate());
+
+            SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy.MM.dd HH:MM:ss");
+            date.setText(simpleDateFormat.format(Long.valueOf(item.getDate())));
+
             value.setText(String.valueOf(item.getValue()));
             if(item.getValue() > 0){
                 value.setTextColor(Color.parseColor("#0090FD"));
@@ -72,6 +76,5 @@ public class MyPointAdapter extends RecyclerView.Adapter<MyPointAdapter.ViewHold
         }
 
     }
-
 
 }

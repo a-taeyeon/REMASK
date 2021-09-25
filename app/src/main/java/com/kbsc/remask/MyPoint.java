@@ -1,22 +1,24 @@
 package com.kbsc.remask;
 
+import java.util.Comparator;
+
 public class MyPoint {
     private int point_id;
     private String user_id;
     private String content;
-    private String date;
+    private long date;
     private int value;
 
     public MyPoint(){}
 
-    public MyPoint(String user_id, String content, String date, int value) {
+    public MyPoint(String user_id, String content, long date, int value) {
         this.user_id = user_id;
         this.content = content;
         this.date = date;
         this.value = value;
     }
 
-    public MyPoint(int point_id, String user_id, String content, String date, int value) {
+    public MyPoint(int point_id, String user_id, String content, long date, int value) {
         this.point_id = point_id;
         this.user_id = user_id;
         this.content = content;
@@ -48,11 +50,11 @@ public class MyPoint {
         this.content = content;
     }
 
-    public String getDate() {
+    public long getDate() {
         return date;
     }
 
-    public void setDate(String date) {
+    public void setDate(long date) {
         this.date = date;
     }
 
@@ -73,5 +75,21 @@ public class MyPoint {
                 ", date='" + date + '\'' +
                 ", value=" + value +
                 '}';
+    }
+}
+
+class MyPointComparator implements Comparator<MyPoint>{
+    @Override
+    public int compare(MyPoint o1, MyPoint o2) {
+        long firstValue = o1.getDate();
+        long secondValue = o2.getDate();
+
+        if(firstValue > secondValue){
+            return -1;
+        } else if(firstValue < secondValue){
+            return 1;
+        } else{
+            return 0;
+        }
     }
 }
