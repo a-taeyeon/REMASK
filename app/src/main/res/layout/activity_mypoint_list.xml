@@ -114,13 +114,13 @@
             android:layout_height="30dp"
             android:layout_marginRight="7dp"
             android:layout_weight="1"
-            android:background="@drawable/selector_radio_button"
+            android:background="@drawable/selector_point_radio_button"
             android:button="@null"
             android:fontFamily="@font/notosanskr_regular"
             android:gravity="center"
             android:includeFontPadding="false"
             android:text="1주일"
-            android:textColor="@drawable/selector_radio_text" />
+            android:textColor="@drawable/selector_point_radio_text" />
 
         <RadioButton
             android:id="@+id/radioButton2"
@@ -128,13 +128,13 @@
             android:layout_height="30dp"
             android:layout_marginRight="7dp"
             android:layout_weight="1"
-            android:background="@drawable/selector_radio_button"
+            android:background="@drawable/selector_point_radio_button"
             android:button="@null"
             android:fontFamily="@font/notosanskr_regular"
             android:gravity="center"
             android:includeFontPadding="false"
             android:text="1개월"
-            android:textColor="@drawable/selector_radio_text" />
+            android:textColor="@drawable/selector_point_radio_text" />
 
         <RadioButton
             android:id="@+id/radioButton3"
@@ -142,13 +142,13 @@
             android:layout_height="30dp"
             android:layout_marginRight="7dp"
             android:layout_weight="1"
-            android:background="@drawable/selector_radio_button"
+            android:background="@drawable/selector_point_radio_button"
             android:button="@null"
             android:fontFamily="@font/notosanskr_regular"
             android:gravity="center"
             android:includeFontPadding="false"
             android:text="3개월"
-            android:textColor="@drawable/selector_radio_text" />
+            android:textColor="@drawable/selector_point_radio_text" />
 
         <RadioButton
             android:id="@+id/radioButton4"
@@ -156,13 +156,13 @@
             android:layout_height="30dp"
             android:layout_marginRight="7dp"
             android:layout_weight="1"
-            android:background="@drawable/selector_radio_button"
+            android:background="@drawable/selector_point_radio_button"
             android:button="@null"
             android:fontFamily="@font/notosanskr_regular"
             android:gravity="center"
             android:includeFontPadding="false"
             android:text="6개월"
-            android:textColor="@drawable/selector_radio_text" />
+            android:textColor="@drawable/selector_point_radio_text" />
 
         <RadioButton
             android:id="@+id/radioButton5"
@@ -170,13 +170,13 @@
             android:layout_height="30dp"
             android:layout_marginRight="7dp"
             android:layout_weight="1"
-            android:background="@drawable/selector_radio_button"
+            android:background="@drawable/selector_point_radio_button"
             android:button="@null"
             android:fontFamily="@font/notosanskr_regular"
             android:gravity="center"
             android:includeFontPadding="false"
             android:text="1년"
-            android:textColor="@drawable/selector_radio_text" />
+            android:textColor="@drawable/selector_point_radio_text" />
     </RadioGroup>
 
     <LinearLayout
