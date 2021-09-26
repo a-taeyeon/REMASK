@@ -39,6 +39,7 @@ public class MypageActivity extends AppCompatActivity {
 
         tvName = (TextView) findViewById(R.id.tvMypage_userName);
         setUserName();
+
     }
 
     public void onClick(View v){
@@ -55,12 +56,11 @@ public class MypageActivity extends AppCompatActivity {
             case R.id.ivMypage_orders:
                 intent = new Intent(MypageActivity.this, MyOrderListActivity.class);
                 break;
-//            case R.id.ivMypage_masks:
-//                intent = new Intent(MypageActivity.this, );
-//                break;
+            case R.id.ivMypage_masks:
+                intent = new Intent(MypageActivity.this, MaskOrderActivity.class);
+                break;
         }
         startActivity(intent);
-        finish();
     }
 
     private void setUserName(){
@@ -86,5 +86,4 @@ public class MypageActivity extends AppCompatActivity {
             }
         });
     }
-
 }
