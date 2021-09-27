@@ -17,10 +17,10 @@ public class MySettingsActivity extends AppCompatActivity {
     public void onClick(View v){
         Intent intent = null;
         switch (v.getId()){
-            case R.id.tvSettings_update:
+            case R.id.tvMymaskOrder_form:
                 intent = new Intent(MySettingsActivity.this, MyInfoUpdateActivity.class);
                 break;
-            case R.id.tvSettings_license:
+            case R.id.tvMymaskOrder_list:
                 intent = new Intent(MySettingsActivity.this, LicenseActivity.class);
                 break;
         }

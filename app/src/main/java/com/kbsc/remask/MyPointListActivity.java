@@ -26,7 +26,6 @@ import java.util.Calendar;
 import java.util.Collections;
 import java.util.Date;
 import java.util.StringTokenizer;
-import java.util.UUID;
 
 public class MyPointListActivity extends AppCompatActivity {
     private static final String TAG = "MyPointListActivity";
@@ -43,8 +42,8 @@ public class MyPointListActivity extends AppCompatActivity {
     RadioGroup radio;
     String before = "";
 
-    RecyclerView rRecyclerView;
-    MyPointAdapter upRecyclerAdapter;
+    RecyclerView rvMyPoint;
+    MyPointAdapter myPointAdapter;
     ArrayList<MyPoint> list;
     int pointSum = 0;
 
@@ -94,22 +93,22 @@ public class MyPointListActivity extends AppCompatActivity {
 
         dbUserId = setUserInfo();
 
-        rRecyclerView = (RecyclerView)findViewById(R.id.rvMyPoint);
+        rvMyPoint = (RecyclerView)findViewById(R.id.rvMyPoint);
 
 
         /* initiate adapter */
-        upRecyclerAdapter = new MyPointAdapter();
+        myPointAdapter = new MyPointAdapter();
 
         /* initiate recyclerview */
-        rRecyclerView.setAdapter(upRecyclerAdapter);
-        rRecyclerView.setLayoutManager(new LinearLayoutManager(this));
+        rvMyPoint.setAdapter(myPointAdapter);
+        rvMyPoint.setLayoutManager(new LinearLayoutManager(this));
 
         /* adapt data */
         list = new ArrayList<MyPoint>();
         getPointList(dbUserId, before);
         Log.d(TAG, "!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!" + list.toString()); //[]
         Log.d(TAG, "pointSum in onCreate(): " + pointSum); //0
-        upRecyclerAdapter.setPointList(list);
+        myPointAdapter.setPointList(list);
     }
 
     private String setUserInfo(){
@@ -206,7 +205,7 @@ public class MyPointListActivity extends AppCompatActivity {
                 Log.d(TAG, "pointSum in onDataChange: " + pointSum);
                 tvPointSum.setText(String.valueOf(pointSum));
                 Collections.sort(list, new MyPointComparator());
-                upRecyclerAdapter.setPointList(list);
+                myPointAdapter.setPointList(list);
             }
 
             @Override
