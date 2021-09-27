@@ -17,6 +17,7 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
 import java.util.StringTokenizer;
+import java.util.UUID;
 
 public class MypageActivity extends AppCompatActivity {
 
@@ -40,6 +41,7 @@ public class MypageActivity extends AppCompatActivity {
         tvName = (TextView) findViewById(R.id.tvMypage_userName);
         setUserName();
 
+        String uuid = UUID.randomUUID().toString();
     }
 
     public void onClick(View v){
@@ -57,7 +59,7 @@ public class MypageActivity extends AppCompatActivity {
                 intent = new Intent(MypageActivity.this, MyOrderListActivity.class);
                 break;
             case R.id.ivMypage_masks:
-                intent = new Intent(MypageActivity.this, MaskOrderActivity.class);
+                intent = new Intent(MypageActivity.this, MyMaskOrderActivity.class);
                 break;
         }
         startActivity(intent);

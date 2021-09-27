@@ -51,7 +51,9 @@
         <activity android:name=".MyCartActivity"/>
         <activity android:name=".MyOrderListActivity"/>
         <activity android:name=".MyOrderDetailActivity"/>
-        <activity android:name=".MaskOrderActivity"/>
+        <activity android:name=".MyMaskOrderActivity"/>
+        <activity android:name=".MyMaskOrderFormActivity"/>
+        <activity android:name=".MyMaskOrderListActivity"/>
     </application>
 
 </manifest>
