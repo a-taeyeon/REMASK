@@ -91,13 +91,13 @@ public class MyMaskOrderFormActivity extends AppCompatActivity {
                         method, reason, date, state);
                 dbRef.child("maskorder").child(key.toString()).setValue(maskOrder);
 
-                //maskComponent 테이블에서 fabricCnt, ringCnt, wireCnt 감소 -> 작동안함?
+                //내 point도 totalPoint만큼 감소 -> 작동안함?
+                updateMyPoint(dbUserId);
+
+                //maskComponent 테이블에서 fabricCnt, ringCnt, wireCnt 감소
                 updateMaskComponent("fabric", orderFabricCnt);
                 updateMaskComponent("ring", orderRingCnt);
                 updateMaskComponent("wire", orderWireCnt);
-
-                //내 point도 totalPoint만큼 감소 -> 작동안함?
-                updateMyPoint(dbUserId, Integer.parseInt(tvTotalPoint.getText().toString()));
 
                 Intent intent = new Intent(MyMaskOrderFormActivity.this, MypageActivity.class);
                 startActivity(intent);
@@ -130,9 +130,10 @@ public class MyMaskOrderFormActivity extends AppCompatActivity {
         });
     }
 
-    public void updateMyPoint(String userId, int usedPoint){
+    public void updateMyPoint(String userId){
         String uuid = String.valueOf(UUID.randomUUID());
-        dbRef.child("points").child(uuid).setValue(new MyPoint(userId, "폐마스크 발주", System.currentTimeMillis(), -usedPoint));
+        StringTokenizer usedPoint = new StringTokenizer(tvTotalPoint.getText().toString(), " ");
+        dbRef.child("points").child(uuid).setValue(new MyPoint(dbUserId, "폐마스크 발주", System.currentTimeMillis(), -Integer.parseInt(usedPoint.nextToken())));
     }
 
     public void onClick(View v){

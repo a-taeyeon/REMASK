@@ -114,6 +114,7 @@
             android:layout_height="30dp"
             android:layout_marginRight="7dp"
             android:layout_weight="1"
+            android:checked="true"
             android:background="@drawable/selector_point_radio_button"
             android:button="@null"
             android:fontFamily="@font/notosanskr_regular"

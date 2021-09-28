@@ -60,6 +60,7 @@ public class MyPointListActivity extends AppCompatActivity {
         tvStartDate= findViewById(R.id.tvMypointList_start);
         tvEndDate = findViewById(R.id.tvMypointList_end);
 
+        setDate("1week");
         radio = (RadioGroup) findViewById(R.id.rgMypointList);
         radio.setOnCheckedChangeListener((group, checkedId) -> {
             View radioButton = radio.findViewById(checkedId);
@@ -68,23 +69,18 @@ public class MyPointListActivity extends AppCompatActivity {
             // Add logic here
             switch (index) {
                 case 0: // 1주일
-                    Toast.makeText(MyPointListActivity.this, "Selected button number " + index,  Toast.LENGTH_SHORT).show();
                     before = "1week";
                     break;
                 case 1: // 1개월
-                    Toast.makeText(MyPointListActivity.this, "Selected button number " + index,  Toast.LENGTH_SHORT).show();
                     before = "1month";
                     break;
                 case 2: //3개월
-                    Toast.makeText(MyPointListActivity.this, "Selected button number " + index,  Toast.LENGTH_SHORT).show();
-                    before = "3month";
+                     before = "3month";
                     break;
                 case 3: //6개월
-                    Toast.makeText(MyPointListActivity.this, "Selected button number " + index,  Toast.LENGTH_SHORT).show();
                     before = "6month";
                     break;
                 case 4: //1년
-                    Toast.makeText(MyPointListActivity.this, "Selected button number " + index,  Toast.LENGTH_SHORT).show();
                     before = "1year";
                     break;
             }
