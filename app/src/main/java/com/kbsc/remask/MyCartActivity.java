@@ -92,28 +92,12 @@ public class MyCartActivity extends AppCompatActivity {
             myCartAdapter.notifyDataSetChanged();
         });
 
-//        tvDelete.setOnClickListener(v -> {
-//            if(cbSelectAll.isChecked()){
-//                list.clear();
-//                myCartAdapter.notifyDataSetChanged();
-//                cbSelectAll.setChecked(false);
-//
-//                //(추가) db에서 삭제 처리..
-//                myCartAdapter.setOnDeleteClickListener(new MyCartAdapter.OnDeleteClickListener() {
-//                    @Override
-//                    public void onDeleteClick(View v, int position) {
-//                        list.remove(position);
-//
-//                    }
-//                });
-//            }
-//        });
-        myCartAdapter.setOnDeleteClickListener(new MyCartAdapter.OnDeleteClickListener() {
-            @Override
-            public void onDeleteClick(View v, int position) {
-                Toast.makeText(MyCartActivity.this, "position: " + position, Toast.LENGTH_SHORT).show();
-            }
+        tvDelete.setOnClickListener(v ->{ //Delete작동안됨
+            myCartAdapter.setOnItemClickListener((v1, position) -> {
+                Toast.makeText(this, "position: " + position, Toast.LENGTH_SHORT).show();
+            });
         });
+
     }
 
     public void getCartList(String userId){

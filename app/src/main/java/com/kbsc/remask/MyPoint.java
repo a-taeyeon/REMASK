@@ -1,8 +1,9 @@
 package com.kbsc.remask;
 
+import java.io.Serializable;
 import java.util.Comparator;
 
-public class MyPoint {
+public class MyPoint implements Serializable {
     private int point_id;
     private String user_id;
     private String content;

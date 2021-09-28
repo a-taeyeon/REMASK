@@ -23,13 +23,35 @@ public class MyCartAdapter extends RecyclerView.Adapter<MyCartAdapter.ViewHolder
         notifyDataSetChanged();
     }
 
-    public interface OnDeleteClickListener {
-        void onDeleteClick(View v, int position);
+    public interface OnItemClickListener{
+        void onItemClick(View v, int position) ;
     }
-    private OnDeleteClickListener deleteClickListener;
+    // 리스너 객체 참조를 저장하는 변수
+    private OnItemClickListener mListener = null ;
+    // OnItemClickListener 리스너 객체 참조를 어댑터에 전달하는 메서드
+    public void setOnItemClickListener(OnItemClickListener listener) {
+        this.mListener = listener ;
+    }
 
-    public void setOnDeleteClickListener(OnDeleteClickListener deleteListener){
-        deleteClickListener = deleteListener;
+    public void onDeleteClick(){
+        int iMax = list.size() - 1;
+        for(int i = iMax; i >= 0; i--){
+            if(list.get(i).getSelected()){
+                list.remove(i);
+                notifyItemRemoved(i);
+                notifyItemRangeChanged(i, list.size());
+            }
+//            else{
+//                int length = list.get(i).get().size() - 1;
+//                for (int j = length; j >= 0; j--) {
+//                    if (list.get(i).getItems().get(j).ischeck()) {
+//                        list.get(i).getItems().remove(j);
+//                        notifyItemRemoved(i);
+//                        notifyItemRangeChanged(i, list.size());
+//                    }
+//                }
+//            }
+        }
     }
 
     @NonNull
@@ -67,8 +89,6 @@ public class MyCartAdapter extends RecyclerView.Adapter<MyCartAdapter.ViewHolder
         TextView quantity;
         CheckBox cbSelect;
 
-
-
         public ViewHolder(@NonNull View itemView){
             super(itemView);
 
@@ -78,6 +98,15 @@ public class MyCartAdapter extends RecyclerView.Adapter<MyCartAdapter.ViewHolder
             price = itemView.findViewById(R.id.tvMyCart_price);
             quantity = itemView.findViewById(R.id.tvMyCart_quantity);
             cbSelect = itemView.findViewById(R.id.cbMyCart);
+
+            itemView.setOnClickListener(v -> {
+                int pos = getAdapterPosition();
+                if(pos != RecyclerView.NO_POSITION) {
+                    if (mListener != null) {
+                        mListener.onItemClick(v, pos);
+                    }
+                }
+            });
         }
 
         void onBind(MyCart item){
