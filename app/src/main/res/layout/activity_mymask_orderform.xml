@@ -6,7 +6,7 @@
     android:layout_height="match_parent">
 
     <include
-        android:id="@+id/include3"
+        android:id="@+id/toolbar_mymask_orderform"
         layout="@layout/toolbar"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -15,10 +15,10 @@
     <ScrollView
         android:layout_width="0dp"
         android:layout_height="0dp"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/bottom_nav"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/include3">
+        app:layout_constraintTop_toBottomOf="@+id/toolbar_mymask_orderform">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -291,10 +291,10 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
+                android:orientation="horizontal"
                 android:paddingLeft="16dp"
                 android:paddingTop="20dp"
-                android:paddingBottom="20dp"
-                android:orientation="horizontal">
+                android:paddingBottom="20dp">
 
                 <TextView
                     android:id="@+id/textView15"
@@ -316,11 +316,11 @@
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
                     android:layout_marginRight="16dp"
+                    android:background="@drawable/border_maskorder_point"
                     android:fontFamily="@font/notosanskr_medium"
+                    android:gravity="center"
                     android:includeFontPadding="false"
                     android:text="0000 P"
-                    android:gravity="center"
-                    android:background="@drawable/border_maskorder_point"
                     android:textColor="@color/gray"
                     android:textSize="16sp" />
             </LinearLayout>
@@ -345,5 +345,20 @@
 
         </LinearLayout>
     </ScrollView>
+
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:id="@+id/bottom_nav"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:theme="@style/Widget.BottomNavigationView"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:labelVisibilityMode="labeled"
+        android:background="@color/main_blue"
+        app:itemIconTint="@color/white"
+        app:itemTextColor="@color/white"
+        app:menu="@menu/bottom_menu" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

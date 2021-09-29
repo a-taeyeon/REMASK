@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.graphics.Point;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.Menu;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.RadioButton;
@@ -14,6 +15,7 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -24,13 +26,16 @@ import com.google.firebase.database.ValueEventListener;
 import java.util.StringTokenizer;
 import java.util.UUID;
 
-public class MyMaskOrderFormActivity extends AppCompatActivity {
+public class MyMaskOrderFormActivity extends AppCompatActivity implements NavigationInterface{
 
     private static final String TAG = "MyMaskOrderFormActivity";
     FirebaseAuth firebaseAuth;
     private DatabaseReference dbRef;
     String userEmail = "";
     String dbUserId = "";
+
+    BottomNavigationView bottomNavigationView;
+    Menu menu;
 
     EditText etCnt1;
     EditText etCnt2;
@@ -59,6 +64,18 @@ public class MyMaskOrderFormActivity extends AppCompatActivity {
 
         firebaseAuth = firebaseAuth.getInstance();
         dbRef = FirebaseDatabase.getInstance().getReference();
+
+        TextView toolbar_name = findViewById(R.id.tvToolbar_name);
+        toolbar_name.setText("발주 넣기");
+        bottomNavigationView = findViewById(R.id.bottom_nav);
+        menu = bottomNavigationView.getMenu();
+        bottomNavigationView.setSelectedItemId(R.id.action_mypage);  //선택된 아이템 지정
+        bottomNavigationView.setOnItemSelectedListener(menuItem -> {
+            Intent intent = nextIntent(menuItem, menu, getApplicationContext());
+            startActivity(intent);
+            finish();
+            return true;
+        });
 
         userEmail = firebaseAuth.getCurrentUser().getEmail();
         StringTokenizer stk = new StringTokenizer(userEmail, "@");

@@ -6,7 +6,7 @@
     android:layout_height="match_parent">
 
     <include
-        android:id="@+id/include6"
+        android:id="@+id/toolbar_myorder_detail"
         layout="@layout/toolbar"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -18,7 +18,7 @@
         android:layout_height="wrap_content"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/include6"
+        app:layout_constraintTop_toBottomOf="@+id/toolbar_myorder_detail"
         app:srcCompat="@drawable/background_mycart" />
 
     <TextView
@@ -122,8 +122,9 @@
         android:layout_marginTop="16dp"
         android:layout_marginEnd="24dp"
         android:orientation="vertical"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/bottom_nav"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imageView16">
 
@@ -137,8 +138,8 @@
                 android:id="@+id/textView19"
                 android:layout_width="60dp"
                 android:layout_height="wrap_content"
-                android:layout_marginRight="5dp"
                 android:layout_gravity="center_vertical"
+                android:layout_marginRight="5dp"
                 android:fontFamily="@font/notosanskr_medium"
                 android:includeFontPadding="false"
                 android:text="받는사람"
@@ -151,13 +152,13 @@
                 android:layout_height="match_parent"
                 android:layout_weight="1"
                 android:background="@drawable/tvbg_orderdetail"
-                android:gravity="center_vertical"
                 android:fontFamily="@font/notosanskr_regular"
+                android:gravity="center_vertical"
                 android:includeFontPadding="false"
+                android:paddingLeft="8dp"
                 android:paddingTop="5dp"
-                android:paddingBottom="5dp"
                 android:paddingRight="8dp"
-                android:paddingLeft="8dp"/>
+                android:paddingBottom="5dp" />
         </LinearLayout>
 
 
@@ -171,8 +172,8 @@
                 android:id="@+id/textView20"
                 android:layout_width="60dp"
                 android:layout_height="wrap_content"
-                android:layout_marginRight="5dp"
                 android:layout_gravity="center_vertical"
+                android:layout_marginRight="5dp"
                 android:fontFamily="@font/notosanskr_medium"
                 android:includeFontPadding="false"
                 android:text="연락"
@@ -184,15 +185,14 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
-                android:paddingTop="5dp"
-                android:paddingBottom="5dp"
-                android:paddingRight="8dp"
-                android:paddingLeft="8dp"
-                android:gravity="center_vertical"
-                android:fontFamily="@font/notosanskr_regular"
-                android:includeFontPadding="false"
                 android:background="@drawable/tvbg_orderdetail"
-                />
+                android:fontFamily="@font/notosanskr_regular"
+                android:gravity="center_vertical"
+                android:includeFontPadding="false"
+                android:paddingLeft="8dp"
+                android:paddingTop="5dp"
+                android:paddingRight="8dp"
+                android:paddingBottom="5dp" />
         </LinearLayout>
 
         <LinearLayout
@@ -204,9 +204,9 @@
                 android:id="@+id/textView21"
                 android:layout_width="60dp"
                 android:layout_height="wrap_content"
-                android:layout_marginRight="5dp"
-                android:layout_marginTop="10dp"
                 android:layout_gravity="top"
+                android:layout_marginTop="10dp"
+                android:layout_marginRight="5dp"
                 android:fontFamily="@font/notosanskr_medium"
                 android:includeFontPadding="false"
                 android:text="주소"
@@ -221,11 +221,26 @@
                 android:background="@drawable/tvbg_orderdetail"
                 android:fontFamily="@font/notosanskr_regular"
                 android:includeFontPadding="false"
+                android:paddingLeft="8dp"
                 android:paddingTop="5dp"
-                android:paddingBottom="5dp"
                 android:paddingRight="8dp"
-                android:paddingLeft="8dp"/>
+                android:paddingBottom="5dp" />
         </LinearLayout>
-
     </LinearLayout>
+
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:id="@+id/bottom_nav"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:theme="@style/Widget.BottomNavigationView"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:labelVisibilityMode="labeled"
+        android:background="@color/main_blue"
+        app:itemIconTint="@color/white"
+        app:itemTextColor="@color/white"
+        app:menu="@menu/bottom_menu" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -3,12 +3,16 @@ package com.kbsc.remask;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.google.android.material.bottomnavigation.BottomNavigationView;
+import com.google.android.material.navigation.NavigationBarView;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -19,13 +23,16 @@ import com.google.firebase.database.ValueEventListener;
 import java.util.StringTokenizer;
 import java.util.UUID;
 
-public class MypageActivity extends AppCompatActivity {
+public class MypageActivity extends AppCompatActivity implements NavigationInterface{
 
     private static final String TAG = "MypageActivity";
     FirebaseAuth firebaseAuth;
     private DatabaseReference dbRef;
     String userEmail = "";
     String dbUserId = "";
+
+    BottomNavigationView bottomNavigationView;
+    Menu menu;
 
     Intent intent;
     TextView tvName;
@@ -38,10 +45,18 @@ public class MypageActivity extends AppCompatActivity {
         firebaseAuth = firebaseAuth.getInstance();
         dbRef = FirebaseDatabase.getInstance().getReference();
 
+        bottomNavigationView = findViewById(R.id.bottom_nav);
+        menu = bottomNavigationView.getMenu();
+        bottomNavigationView.setSelectedItemId(R.id.action_mypage);  //선택된 아이템 지정
+        bottomNavigationView.setOnItemSelectedListener(menuItem -> {
+            Intent intent = nextIntent(menuItem, menu, getApplicationContext());
+            startActivity(intent);
+            finish();
+            return true;
+        });
+
         tvName = (TextView) findViewById(R.id.tvMypage_userName);
         setUserName();
-
-        String uuid = UUID.randomUUID().toString();
     }
 
     public void onClick(View v){

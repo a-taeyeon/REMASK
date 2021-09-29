@@ -1,8 +1,11 @@
 package com.kbsc.remask;
 
 import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.Menu;
+import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -10,6 +13,7 @@ import androidx.recyclerview.widget.DividerItemDecoration;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -21,13 +25,16 @@ import com.google.firebase.database.ValueEventListener;
 import java.util.ArrayList;
 import java.util.StringTokenizer;
 
-public class MyMaskOrderListActivity extends AppCompatActivity {
+public class MyMaskOrderListActivity extends AppCompatActivity implements NavigationInterface{
     private static final String TAG = "MaskOrderListActivity";
     FirebaseAuth firebaseAuth;
     private DatabaseReference dbRef;
 
     String userEmail = "";
     String dbUserId = "";
+
+    BottomNavigationView bottomNavigationView;
+    Menu menu;
 
     RecyclerView rvMyMask;
     MyMaskOrderListAdapter myMaskOrderListAdapter;
@@ -40,6 +47,18 @@ public class MyMaskOrderListActivity extends AppCompatActivity {
 
         firebaseAuth = firebaseAuth.getInstance();
         dbRef = FirebaseDatabase.getInstance().getReference();
+
+        TextView toolbar_name = findViewById(R.id.tvToolbar_name);
+        toolbar_name.setText("발주 목록");
+        bottomNavigationView = findViewById(R.id.bottom_nav);
+        menu = bottomNavigationView.getMenu();
+        bottomNavigationView.setSelectedItemId(R.id.action_mypage);  //선택된 아이템 지정
+        bottomNavigationView.setOnItemSelectedListener(menuItem -> {
+            Intent intent = nextIntent(menuItem, menu, getApplicationContext());
+            startActivity(intent);
+            finish();
+            return true;
+        });
 
         userEmail = firebaseAuth.getCurrentUser().getEmail();
         Log.d(TAG, userEmail);
