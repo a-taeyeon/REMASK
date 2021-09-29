@@ -1,7 +1,9 @@
 package com.kbsc.remask;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.Menu;
 import android.view.View;
 import android.widget.RadioGroup;
 import android.widget.TextView;
@@ -12,6 +14,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -27,12 +30,16 @@ import java.util.Collections;
 import java.util.Date;
 import java.util.StringTokenizer;
 
-public class MyPointListActivity extends AppCompatActivity {
+public class MyPointListActivity extends AppCompatActivity implements NavigationInterface{
     private static final String TAG = "MyPointListActivity";
     FirebaseAuth firebaseAuth;
     private DatabaseReference dbRef;
     String userEmail = "";
     String dbUserId = "";
+
+    BottomNavigationView bottomNavigationView;
+    Menu menu;
+
 
     TextView tvName;
     TextView tvPointSum;
@@ -54,6 +61,18 @@ public class MyPointListActivity extends AppCompatActivity {
 
         firebaseAuth = firebaseAuth.getInstance();
         dbRef = FirebaseDatabase.getInstance().getReference();
+
+        TextView toolbar_name = findViewById(R.id.tvToolbar_name);
+        toolbar_name.setText("포인트 내역");
+        bottomNavigationView = findViewById(R.id.bottom_nav);
+        menu = bottomNavigationView.getMenu();
+        bottomNavigationView.setSelectedItemId(R.id.action_mypage);  //선택된 아이템 지정
+        bottomNavigationView.setOnItemSelectedListener(menuItem -> {
+            Intent intent = nextIntent(menuItem, menu, getApplicationContext());
+            startActivity(intent);
+            finish();
+            return true;
+        });
 
         tvName = findViewById(R.id.tvMypointList_userName);
         tvPointSum = findViewById(R.id.tvMypointList_sum);

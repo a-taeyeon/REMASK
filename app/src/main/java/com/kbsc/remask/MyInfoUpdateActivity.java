@@ -1,7 +1,9 @@
 package com.kbsc.remask;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.Menu;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.TextView;
@@ -9,6 +11,7 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -20,13 +23,15 @@ import org.w3c.dom.Text;
 
 import java.util.StringTokenizer;
 
-public class MyInfoUpdateActivity extends AppCompatActivity {
+public class MyInfoUpdateActivity extends AppCompatActivity implements NavigationInterface{
     private static final String TAG = "MyInfoUpdateActivity";
     FirebaseAuth firebaseAuth;
     private DatabaseReference dbRef;
 
     String userEmail = "";
     String dbUserId = "";
+    BottomNavigationView bottomNavigationView;
+    Menu menu;
 
     TextView tvName;
     TextView tvEmail;
@@ -44,6 +49,16 @@ public class MyInfoUpdateActivity extends AppCompatActivity {
 
         firebaseAuth = firebaseAuth.getInstance();
         dbRef = FirebaseDatabase.getInstance().getReference();
+
+        bottomNavigationView = findViewById(R.id.bottom_nav);
+        menu = bottomNavigationView.getMenu();
+        bottomNavigationView.setSelectedItemId(R.id.action_mypage);  //선택된 아이템 지정
+        bottomNavigationView.setOnItemSelectedListener(menuItem -> {
+            Intent intent = nextIntent(menuItem, menu, getApplicationContext());
+            startActivity(intent);
+            finish();
+            return true;
+        });
 
         tvName = (TextView) findViewById(R.id.tvUpdateInfo_userName);
         tvEmail = (TextView) findViewById(R.id.tvUpdateInfo_email);

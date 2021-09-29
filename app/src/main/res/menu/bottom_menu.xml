@@ -1,26 +1,31 @@
 <?xml version="1.0" encoding="utf-8"?>
-<menu xmlns:android="http://schemas.android.com/apk/res/android">
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
     <item
         android:id="@+id/action_home"
         android:enabled="true"
         android:icon="@drawable/navi_home"
+        app:showAsAction="always"
         android:title="홈"/>
 
     <item
         android:id="@+id/action_mask"
         android:enabled="true"
         android:icon="@drawable/navi_mask"
+        app:showAsAction="always"
         android:title="마스크등록"/>
 
     <item
         android:id="@+id/action_cart"
         android:enabled="true"
         android:icon="@drawable/navi_cart"
+        app:showAsAction="always"
         android:title="물품 구매"/>
 
     <item
         android:id="@+id/action_mypage"
         android:enabled="true"
         android:icon="@drawable/navi_mypage"
+        app:showAsAction="always"
         android:title="마이페이지"/>
 </menu>
