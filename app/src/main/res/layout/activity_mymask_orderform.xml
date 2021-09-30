@@ -61,7 +61,7 @@
                     android:textSize="16sp" />
 
                 <ImageView
-                    android:id="@+id/ivMaskOrder_minus1"
+                    android:id="@+id/ivMaskOrderForm_minus1"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:background="@color/lightGray"
@@ -69,7 +69,7 @@
                     app:srcCompat="@drawable/minus_img" />
 
                 <EditText
-                    android:id="@+id/etMaskOrder_cnt1"
+                    android:id="@+id/etMaskOrderForm_cnt1"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:background="@color/lightGray"
@@ -83,7 +83,7 @@
                     android:textColor="@color/gray" />
 
                 <ImageView
-                    android:id="@+id/ivMaskOrder_plus1"
+                    android:id="@+id/ivMaskOrderForm_plus1"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginRight="16dp"
@@ -114,7 +114,7 @@
                     android:textSize="16sp" />
 
                 <ImageView
-                    android:id="@+id/ivMaskOrder_minus2"
+                    android:id="@+id/ivMaskOrderForm_minus2"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:background="@color/lightGray"
@@ -122,7 +122,7 @@
                     app:srcCompat="@drawable/minus_img" />
 
                 <EditText
-                    android:id="@+id/etMaskOrder_cnt2"
+                    android:id="@+id/etMaskOrderForm_cnt2"
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
                     android:background="@color/lightGray"
@@ -136,7 +136,7 @@
                     android:textColor="@color/gray" />
 
                 <ImageView
-                    android:id="@+id/ivMaskOrder_plus2"
+                    android:id="@+id/ivMaskOrderForm_plus2"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginRight="16dp"
@@ -166,7 +166,7 @@
                     android:textSize="16sp" />
 
                 <ImageView
-                    android:id="@+id/ivMaskOrder_minus3"
+                    android:id="@+id/ivMaskOrderForm_minus3"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:background="@color/lightGray"
@@ -174,7 +174,7 @@
                     app:srcCompat="@drawable/minus_img" />
 
                 <EditText
-                    android:id="@+id/etMaskOrder_cnt3"
+                    android:id="@+id/etMaskOrderForm_cnt3"
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
                     android:background="@color/lightGray"
@@ -188,7 +188,7 @@
                     android:textColor="@color/gray" />
 
                 <ImageView
-                    android:id="@+id/ivMaskOrder_plus3"
+                    android:id="@+id/ivMaskOrderForm_plus3"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginRight="16dp"

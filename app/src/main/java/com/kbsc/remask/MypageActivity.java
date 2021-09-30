@@ -6,7 +6,9 @@ import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -62,7 +64,7 @@ public class MypageActivity extends AppCompatActivity implements NavigationInter
     public void onClick(View v){
         switch (v.getId()){
             case R.id.ivMypage_settings:
-                intent = new Intent(MypageActivity.this, MySettingsActivity.class);
+                intent = new Intent(MypageActivity.this, MyInfoUpdateActivity.class);
                 break;
             case R.id.ivMypage_mycart:
                 intent = new Intent(MypageActivity.this, MyCartActivity.class);
@@ -95,6 +97,11 @@ public class MypageActivity extends AppCompatActivity implements NavigationInter
                 String name = user.getUserName();
 
                 tvName.setText(name);
+
+                if(user.getSellerNum() != null){
+                    ImageView ivSeller = findViewById(R.id.ivMypage_seller);
+                    ivSeller.setVisibility(View.VISIBLE);
+                }
             }
 
             @Override

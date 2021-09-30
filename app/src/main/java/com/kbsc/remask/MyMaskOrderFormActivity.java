@@ -1,7 +1,6 @@
 package com.kbsc.remask;
 
 import android.content.Intent;
-import android.graphics.Point;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.Menu;
@@ -81,9 +80,9 @@ public class MyMaskOrderFormActivity extends AppCompatActivity implements Naviga
         StringTokenizer stk = new StringTokenizer(userEmail, "@");
         dbUserId = stk.nextToken();
 
-        etCnt1 = findViewById(R.id.etMaskOrder_cnt1);
-        etCnt2 = findViewById(R.id.etMaskOrder_cnt2);
-        etCnt3 = findViewById(R.id.etMaskOrder_cnt3);
+        etCnt1 = findViewById(R.id.etMaskOrderForm_cnt1);
+        etCnt2 = findViewById(R.id.etMaskOrderForm_cnt2);
+        etCnt3 = findViewById(R.id.etMaskOrderForm_cnt3);
         etReason = findViewById(R.id.etMaskOrder_reason);
         tvTotalPoint = findViewById(R.id.tvMaskOrder_totalPoint);
         tvConfirm = findViewById(R.id.tvMaskOrder_confirm);
@@ -155,33 +154,33 @@ public class MyMaskOrderFormActivity extends AppCompatActivity implements Naviga
 
     public void onClick(View v){
         switch (v.getId()){
-            case R.id.ivMaskOrder_minus1:
+            case R.id.ivMaskOrderForm_minus1:
                 if(cnt1 > 0) {
                     etCnt1.setText(String.valueOf(--cnt1));
                     --totalPoint;
                 }
                 break;
-            case R.id.ivMaskOrder_plus1:
+            case R.id.ivMaskOrderForm_plus1:
                 etCnt1.setText(String.valueOf(++cnt1));
                 ++totalPoint;
                 break;
-            case R.id.ivMaskOrder_minus2:
+            case R.id.ivMaskOrderForm_minus2:
                 if(cnt2 > 0) {
                     etCnt2.setText(String.valueOf(--cnt2));
                     --totalPoint;
                 }
                 break;
-            case R.id.ivMaskOrder_plus2:
+            case R.id.ivMaskOrderForm_plus2:
                 etCnt2.setText(String.valueOf(++cnt2));
                 ++totalPoint;
                 break;
-            case R.id.ivMaskOrder_minus3:
+            case R.id.ivMaskOrderForm_minus3:
                 if(cnt3 > 0){
                     etCnt3.setText(String.valueOf(--cnt3));
                     --totalPoint;
                 }
                 break;
-            case R.id.ivMaskOrder_plus3:
+            case R.id.ivMaskOrderForm_plus3:
                 etCnt3.setText(String.valueOf(++cnt3));
                 ++totalPoint;
                 break;
