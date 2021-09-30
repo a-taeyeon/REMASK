@@ -15,7 +15,6 @@ public class MySettingsActivity extends AppCompatActivity implements NavigationI
     BottomNavigationView bottomNavigationView;
     Menu menu;
 
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -25,23 +24,23 @@ public class MySettingsActivity extends AppCompatActivity implements NavigationI
         toolbar_name.setText("환경설정");
         bottomNavigationView = findViewById(R.id.bottom_nav);
         menu = bottomNavigationView.getMenu();
-        bottomNavigationView.setSelectedItemId(R.id.action_mypage);  //선택된 아이템 지정
         bottomNavigationView.setOnItemSelectedListener(menuItem -> {
             Intent intent = nextIntent(menuItem, menu, getApplicationContext());
             startActivity(intent);
             finish();
             return true;
         });
+        bottomNavigationView.setSelectedItemId(R.id.action_mypage);  //선택된 아이템 지정
 
     }
 
     public void onClick(View v){
         Intent intent = null;
         switch (v.getId()){
-            case R.id.tvMymaskOrder_form:
+            case R.id.tvSettings_updateInfo:
                 intent = new Intent(MySettingsActivity.this, MyInfoUpdateActivity.class);
                 break;
-            case R.id.tvMymaskOrder_list:
+            case R.id.tvSettings_license:
                 intent = new Intent(MySettingsActivity.this, LicenseActivity.class);
                 break;
         }

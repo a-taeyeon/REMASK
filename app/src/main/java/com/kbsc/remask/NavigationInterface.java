@@ -28,7 +28,7 @@ public interface NavigationInterface {
                 menu.findItem(R.id.action_home).setIcon(R.drawable.navi_home);
                 menu.findItem(R.id.action_cart).setIcon(R.drawable.navi_cart);
                 menu.findItem(R.id.action_mypage).setIcon(R.drawable.navi_mypage);
-                intent = new Intent(context, MyMaskOrderFormActivity.class);
+                intent = new Intent(context, MaskRegisterActivity.class);
                 break;
 
             case R.id.action_cart:

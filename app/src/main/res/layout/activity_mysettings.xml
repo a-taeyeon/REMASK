@@ -21,7 +21,7 @@
         app:layout_constraintTop_toBottomOf="@+id/toolbar_mysettings">
 
         <TextView
-            android:id="@+id/tvMymaskOrder_form"
+            android:id="@+id/tvSettings_updateInfo"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:background="#F0EFEF"
@@ -36,7 +36,7 @@
             android:textSize="16sp" />
 
         <TextView
-            android:id="@+id/tvMymaskOrder_list"
+            android:id="@+id/tvSettings_license"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:fontFamily="@font/notosanskr_medium"

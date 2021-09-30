@@ -5,180 +5,218 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <LinearLayout
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
+        android:layout_height="0dp"
         app:layout_constraintBottom_toTopOf="@+id/bottom_nav"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
-        <ImageView
-            android:id="@+id/imageView15"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
-            android:layout_marginBottom="20dp"
-            app:srcCompat="@drawable/mask_notice_img" />
-
-        <ImageView
-            android:id="@+id/imageView16"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            app:srcCompat="@drawable/mask_camera_img" />
-
-        <TextView
-            android:id="@+id/textView12"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
-            android:layout_marginBottom="10dp"
-            android:gravity="center"
-            android:text="마스크 타입을 선택해주세요." />
-
-        <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="18dp"
-            android:layout_marginRight="18dp"
-            android:orientation="horizontal">
-
-            <LinearLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:orientation="vertical">
-
-                <ImageView
-                    android:id="@+id/imageView17"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginRight="12dp"
-                    android:layout_weight="1"
-                    app:srcCompat="@drawable/masktype1" />
-
-                <TextView
-                    android:id="@+id/textView18"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="5dp"
-                    android:layout_marginRight="12dp"
-                    android:gravity="center"
-                    android:text="보건용마스크" />
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:orientation="vertical">
-
-                <ImageView
-                    android:id="@+id/imageView18"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    app:srcCompat="@drawable/masktype2" />
-
-                <TextView
-                    android:id="@+id/textView20"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="5dp"
-                    android:gravity="center"
-                    android:text="새부리형" />
-
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:orientation="vertical">
-
-                <ImageView
-                    android:id="@+id/imageView19"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="12dp"
-                    android:layout_weight="1"
-                    app:srcCompat="@drawable/masktype3" />
-
-                <TextView
-                    android:id="@+id/textView21"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="12dp"
-                    android:layout_marginTop="5dp"
-                    android:gravity="center"
-                    android:text="덴탈마스크" />
-            </LinearLayout>
-        </LinearLayout>
-
-        <TextView
-            android:id="@+id/textView22"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="25dp"
-            android:gravity="center"
-            android:text="마스크 수량을 선택해주세요." />
-
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:gravity="center"
-            android:orientation="horizontal">
+            android:orientation="vertical">
 
-            <ImageView
-                android:id="@+id/ivMaskRegister_minusCnt"
-                android:layout_width="wrap_content"
+            <LinearLayout
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:background="@color/lightGray"
-                android:onClick="onClick"
-                app:srcCompat="@drawable/minus_img" />
+                android:orientation="vertical">
 
-            <EditText
-                android:id="@+id/etMaskRegister_cnt"
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:background="@color/lightGray"
-                android:ems="10"
-                android:focusable="false"
-                android:fontFamily="@font/notosanskr_medium"
-                android:gravity="center"
-                android:includeFontPadding="false"
-                android:inputType="none"
-                android:text="0"
-                android:textColor="@color/gray" />
+                <ImageView
+                    android:id="@+id/imageView15"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="20dp"
+                    android:layout_marginBottom="20dp"
+                    app:srcCompat="@drawable/mask_notice_img" />
 
-            <ImageView
-                android:id="@+id/ivMaskRegister_plusCnt"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginRight="16dp"
-                android:background="@color/lightGray"
-                android:onClick="onClick"
-                app:srcCompat="@drawable/plus_img" />
+                <ImageView
+                    android:id="@+id/ivMaskRegister_camera"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:srcCompat="@drawable/mask_camera_img" />
 
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="horizontal"
+                    android:paddingTop="20dp"
+                    android:paddingBottom="20dp">
+
+                    <TextView
+                        android:id="@+id/textView12"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_marginLeft="16dp"
+                        android:layout_weight="1"
+                        android:fontFamily="@font/notosanskr_medium"
+                        android:gravity="center_vertical"
+                        android:includeFontPadding="false"
+                        android:text="마스크 천"
+                        android:textColor="@color/gray"
+                        android:textSize="16sp" />
+
+                    <ImageView
+                        android:id="@+id/ivMaskRegister_minus1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:background="@color/lightGray"
+                        android:onClick="onClick"
+                        app:srcCompat="@drawable/minus_img" />
+
+                    <EditText
+                        android:id="@+id/etMaskRegister_cnt1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:background="@color/lightGray"
+                        android:ems="3"
+                        android:focusable="false"
+                        android:fontFamily="@font/notosanskr_medium"
+                        android:gravity="center"
+                        android:includeFontPadding="false"
+                        android:inputType="none"
+                        android:text="0"
+                        android:textColor="@color/gray" />
+
+                    <ImageView
+                        android:id="@+id/ivMaskRegister_plus1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginRight="16dp"
+                        android:background="@color/lightGray"
+                        android:onClick="onClick"
+                        app:srcCompat="@drawable/plus_img" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="horizontal"
+                    android:paddingTop="20dp"
+                    android:paddingBottom="20dp">
+
+                    <TextView
+                        android:id="@+id/textView13"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_marginLeft="16dp"
+                        android:layout_weight="1"
+                        android:fontFamily="@font/notosanskr_medium"
+                        android:gravity="center_vertical"
+                        android:includeFontPadding="false"
+                        android:text="마스크 귀걸이 끈"
+                        android:textColor="@color/gray"
+                        android:textSize="16sp" />
+
+                    <ImageView
+                        android:id="@+id/ivMaskRegister_minus2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:background="@color/lightGray"
+                        android:onClick="onClick"
+                        app:srcCompat="@drawable/minus_img" />
+
+                    <EditText
+                        android:id="@+id/etMaskRegister_cnt2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:background="@color/lightGray"
+                        android:ems="3"
+                        android:focusable="false"
+                        android:fontFamily="@font/notosanskr_medium"
+                        android:gravity="center"
+                        android:includeFontPadding="false"
+                        android:inputType="none"
+                        android:text="0"
+                        android:textColor="@color/gray" />
+
+                    <ImageView
+                        android:id="@+id/ivMaskRegister_plus2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginRight="16dp"
+                        android:background="@color/lightGray"
+                        android:onClick="onClick"
+                        app:srcCompat="@drawable/plus_img" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="horizontal"
+                    android:paddingTop="20dp"
+                    android:paddingBottom="20dp">
+
+                    <TextView
+                        android:id="@+id/textView14"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_marginLeft="16dp"
+                        android:layout_weight="1"
+                        android:fontFamily="@font/notosanskr_medium"
+                        android:gravity="center_vertical"
+                        android:includeFontPadding="false"
+                        android:text="마스크 와이어"
+                        android:textColor="@color/gray"
+                        android:textSize="16sp" />
+
+                    <ImageView
+                        android:id="@+id/ivMaskRegister_minus3"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:background="@color/lightGray"
+                        android:onClick="onClick"
+                        app:srcCompat="@drawable/minus_img" />
+
+                    <EditText
+                        android:id="@+id/etMaskRegister_cnt3"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:background="@color/lightGray"
+                        android:ems="3"
+                        android:focusable="false"
+                        android:fontFamily="@font/notosanskr_medium"
+                        android:gravity="center"
+                        android:includeFontPadding="false"
+                        android:inputType="none"
+                        android:text="0"
+                        android:textColor="@color/gray" />
+
+                    <ImageView
+                        android:id="@+id/ivMaskRegister_plus3"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginRight="16dp"
+                        android:background="@color/lightGray"
+                        android:onClick="onClick"
+                        app:srcCompat="@drawable/plus_img" />
+                </LinearLayout>
+
+                <TextView
+                    android:id="@+id/tvMaskRegister_confirm"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="20dp"
+                    android:background="@drawable/btn_shape"
+                    android:fontFamily="@font/notosanskr_bold"
+                    android:gravity="center"
+                    android:includeFontPadding="false"
+                    android:paddingTop="12dp"
+                    android:paddingBottom="12dp"
+                    android:text="등록 하기"
+                    android:textColor="@color/white"
+                    android:textSize="18sp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/textView15" />
+
+            </LinearLayout>
         </LinearLayout>
-
-        <TextView
-            android:id="@+id/textView16"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_margin="20dp"
-            android:background="@drawable/btn_shape"
-            android:fontFamily="@font/notosanskr_bold"
-            android:gravity="center"
-            android:includeFontPadding="false"
-            android:paddingTop="12dp"
-            android:paddingBottom="12dp"
-            android:text="등록 하기"
-            android:textColor="@color/white"
-            android:textSize="18sp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textView15" />
-
-    </LinearLayout>
+    </ScrollView>
 
     <com.google.android.material.bottomnavigation.BottomNavigationView
         android:id="@+id/bottom_nav"

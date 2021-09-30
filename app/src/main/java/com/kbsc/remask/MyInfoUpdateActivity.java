@@ -19,9 +19,12 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
+import org.json.JSONException;
 import org.w3c.dom.Text;
 
+import java.io.IOException;
 import java.util.StringTokenizer;
+import java.util.concurrent.Executors;
 
 public class MyInfoUpdateActivity extends AppCompatActivity implements NavigationInterface{
     private static final String TAG = "MyInfoUpdateActivity";
@@ -50,6 +53,8 @@ public class MyInfoUpdateActivity extends AppCompatActivity implements Navigatio
         firebaseAuth = firebaseAuth.getInstance();
         dbRef = FirebaseDatabase.getInstance().getReference();
 
+        TextView toolbar_name = findViewById(R.id.tvToolbar_name);
+        toolbar_name.setText("내정보수정");
         bottomNavigationView = findViewById(R.id.bottom_nav);
         menu = bottomNavigationView.getMenu();
         bottomNavigationView.setSelectedItemId(R.id.action_mypage);  //선택된 아이템 지정
