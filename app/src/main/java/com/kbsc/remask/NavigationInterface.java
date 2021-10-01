@@ -11,7 +11,7 @@ import com.google.firebase.database.annotations.NotNull;
 
 public interface NavigationInterface {
 
-    public default Intent nextIntent(@NonNull @NotNull MenuItem menuItem, Menu menu, Context context){
+    default Intent nextIntent(@NonNull @NotNull MenuItem menuItem, Menu menu, Context context){
         Intent intent = null;
         switch(menuItem.getItemId())
         {

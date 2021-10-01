@@ -17,41 +17,15 @@ import java.util.ArrayList;
 public class MyCartAdapter extends RecyclerView.Adapter<MyCartAdapter.ViewHolder>{
 
     private ArrayList<MyCart> list;
+    private ArrayList<Integer> positionsList = new ArrayList<>();
 
     public void setMyCartList(ArrayList<MyCart> list){
         this.list = list;
         notifyDataSetChanged();
     }
 
-    public interface OnItemClickListener{
-        void onItemClick(View v, int position) ;
-    }
-    // 리스너 객체 참조를 저장하는 변수
-    private OnItemClickListener mListener = null ;
-    // OnItemClickListener 리스너 객체 참조를 어댑터에 전달하는 메서드
-    public void setOnItemClickListener(OnItemClickListener listener) {
-        this.mListener = listener ;
-    }
-
-    public void onDeleteClick(){
-        int iMax = list.size() - 1;
-        for(int i = iMax; i >= 0; i--){
-            if(list.get(i).getSelected()){
-                list.remove(i);
-                notifyItemRemoved(i);
-                notifyItemRangeChanged(i, list.size());
-            }
-//            else{
-//                int length = list.get(i).get().size() - 1;
-//                for (int j = length; j >= 0; j--) {
-//                    if (list.get(i).getItems().get(j).ischeck()) {
-//                        list.get(i).getItems().remove(j);
-//                        notifyItemRemoved(i);
-//                        notifyItemRangeChanged(i, list.size());
-//                    }
-//                }
-//            }
-        }
+    public ArrayList<Integer> toArray(){
+        return positionsList;
     }
 
     @NonNull
@@ -66,14 +40,32 @@ public class MyCartAdapter extends RecyclerView.Adapter<MyCartAdapter.ViewHolder
     public void onBindViewHolder(@NonNull @NotNull MyCartAdapter.ViewHolder holder, int position) {
         holder.onBind(list.get(position));
 
-        final MyCart item = list.get(position);
-        holder.cbSelect.setOnCheckedChangeListener(null);
-        holder.cbSelect.setChecked(item.getSelected());
-        holder.cbSelect.setOnCheckedChangeListener((buttonView, isChecked)
-                -> item.setSelected(isChecked)
-        );
+//        final MyCart item = list.get(position);
+//        holder.cbSelect.setOnCheckedChangeListener(null);
+//        holder.cbSelect.setChecked(item.getSelected());
+//        holder.cbSelect.setOnCheckedChangeListener((buttonView, isChecked)
+//                -> item.setSelected(isChecked)
+//        );
 
+//        holder.cbSelect.setOnClickListener(v -> { //CheckBox
+//            if(!item.getSelected()) { //체크 되어있을 때 눌러서 선택해제
+//                item.setSelected(false);
+////                positionsList.remove(new Integer(position));
+//            }
+//            else { //체크박스 선택
+//                item.setSelected(true);
+//                positionsList.add(position);
+//            }
+//        });
     }
+
+//    public void removeAt(int position) { //CheckBox
+//        if(list.get(position).getSelected()){
+//            list.remove(position);
+//            notifyItemRemoved(position);
+//            notifyItemRangeChanged(position, list.size());
+//        }
+//    }
 
     @Override
     public int getItemCount() {
@@ -86,8 +78,9 @@ public class MyCartAdapter extends RecyclerView.Adapter<MyCartAdapter.ViewHolder
         TextView prdtName;
         TextView prdtAbbr;
         TextView price;
-        TextView quantity;
-        CheckBox cbSelect;
+//        TextView quantity;
+//        CheckBox cbSelect;
+        ImageView star;
 
         public ViewHolder(@NonNull View itemView){
             super(itemView);
@@ -96,17 +89,23 @@ public class MyCartAdapter extends RecyclerView.Adapter<MyCartAdapter.ViewHolder
             prdtName = itemView.findViewById(R.id.tvMyCart_prdtName);
             prdtAbbr = itemView.findViewById(R.id.tvMyCart_prdtAbbr);
             price = itemView.findViewById(R.id.tvMyCart_price);
-            quantity = itemView.findViewById(R.id.tvMyCart_quantity);
-            cbSelect = itemView.findViewById(R.id.cbMyCart);
-
-            itemView.setOnClickListener(v -> {
-                int pos = getAdapterPosition();
-                if(pos != RecyclerView.NO_POSITION) {
-                    if (mListener != null) {
-                        mListener.onItemClick(v, pos);
-                    }
-                }
+//            quantity = itemView.findViewById(R.id.tvMyCart_quantity);
+//            cbSelect = itemView.findViewById(R.id.cbMyCart);
+            star = itemView.findViewById(R.id.ivMyCart_star);
+            star.setOnClickListener(v -> {
+                list.remove(getAdapterPosition());
+                notifyItemRemoved(getAdapterPosition());
+                notifyItemRangeChanged(getAdapterPosition(), list.size());
             });
+
+//            itemView.setOnClickListener(v -> {
+//                int pos = getAdapterPosition();
+//                if(pos != RecyclerView.NO_POSITION) {
+//                    if (mListener != null) {
+//                        mListener.onItemClick(v, pos);
+//                    }
+//                }
+//            });
         }
 
         void onBind(MyCart item){

@@ -94,7 +94,7 @@ public class MyPointListActivity extends AppCompatActivity implements Navigation
                     before = "1month";
                     break;
                 case 2: //3개월
-                     before = "3month";
+                    before = "3month";
                     break;
                 case 3: //6개월
                     before = "6month";
