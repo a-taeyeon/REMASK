@@ -30,6 +30,9 @@ public class LoginActivity extends AppCompatActivity {
         setContentView(R.layout.activity_login);
 
         firebaseAuth = firebaseAuth.getInstance();
+        if(firebaseAuth.getCurrentUser() != null){
+            FirebaseAuth.getInstance().signOut();
+        }
 
         tvErrorMsg = (TextView) findViewById(R.id.tvLogin_errorMsg);
         etEmail = (EditText) findViewById(R.id.etLogin_email);

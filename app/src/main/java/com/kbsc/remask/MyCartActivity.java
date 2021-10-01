@@ -38,9 +38,8 @@ public class MyCartActivity extends AppCompatActivity implements NavigationInter
     Menu menu;
 
 
-    private CheckBox cbSelectAll;
-    private TextView tvDelete;
-    public static boolean isCheckFlag = false;
+//    private CheckBox cbSelectAll;
+//    private TextView tvDelete;
 
     ImageView ivPrdtImg;
     TextView tvPrdtName;
@@ -51,6 +50,8 @@ public class MyCartActivity extends AppCompatActivity implements NavigationInter
     RecyclerView rvMyCart;
     MyCartAdapter myCartAdapter;
     ArrayList<MyCart> list;
+
+//    ArrayList<Integer> deleteChecked = new ArrayList<Integer>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -77,14 +78,14 @@ public class MyCartActivity extends AppCompatActivity implements NavigationInter
         StringTokenizer stk = new StringTokenizer(userEmail, "@");
         dbUserId = stk.nextToken();
 
-        cbSelectAll = findViewById(R.id.cbMyCart_all);
-        tvDelete = findViewById(R.id.tvMyCart_delete);
+//        cbSelectAll = findViewById(R.id.cbMyCart_all);
+//        tvDelete = findViewById(R.id.tvMyCart_delete);
 
         ivPrdtImg = findViewById(R.id.ivMyCart_prdtImg);
         tvPrdtName = findViewById(R.id.tvMyCart_prdtName);
         tvDescription = findViewById(R.id.tvMyCart_prdtAbbr);
         tvPrice = findViewById(R.id.tvMyCart_price);
-        tvQuantity = findViewById(R.id.tvMyCart_quantity);
+//        tvQuantity = findViewById(R.id.tvMyCart_quantity);
 
         rvMyCart = (RecyclerView) findViewById(R.id.rvMyCart);
 
@@ -98,25 +99,32 @@ public class MyCartActivity extends AppCompatActivity implements NavigationInter
         getCartList(dbUserId);
         myCartAdapter.setMyCartList(list);
 
-        cbSelectAll.setOnClickListener(v -> {
-            if (cbSelectAll.isChecked()) {
-                for (MyCart mycart : list) {
-                    mycart.setSelected(true);
-                }
-            } else {
-                for (MyCart mycart : list) {
-                    mycart.setSelected(false);
-                }
-            }
-            myCartAdapter.notifyDataSetChanged();
-        });
+//        cbSelectAll.setOnClickListener(v -> {
+//            if (cbSelectAll.isChecked()) {
+//                for (MyCart mycart : list) {
+//                    mycart.setSelected(true);
+//                }
+//            } else {
+//                for (MyCart mycart : list) {
+//                    mycart.setSelected(false);
+//                }
+//            }
+//            myCartAdapter.notifyDataSetChanged();
+//        });
 
-        tvDelete.setOnClickListener(v ->{ //Delete작동안됨
-            myCartAdapter.setOnItemClickListener((v1, position) -> {
-                Toast.makeText(this, "position: " + position, Toast.LENGTH_SHORT).show();
-            });
-        });
-
+//        tvDelete.setOnClickListener(v -> { //CheckBox
+//            Log.d(TAG, "before list: " + list.toString());
+//            deleteChecked = myCartAdapter.toArray();
+//            Log.d(TAG, "deltedChecked: " + deleteChecked);
+//            if(deleteChecked != null) {
+//                for (Integer i : deleteChecked) {
+//                    Log.d(TAG, "list.get(i): " + list.get(i).toString());
+//                    myCartAdapter.removeAt(i);
+//                }
+//            }
+//            deleteChecked.clear();
+//            Log.d(TAG, "after list: " + list.toString());
+//        });
     }
 
     public void getCartList(String userId){
@@ -127,7 +135,6 @@ public class MyCartActivity extends AppCompatActivity implements NavigationInter
                 for (DataSnapshot childSnapshot : dataSnapshot.getChildren()) {
                     Cart cart = childSnapshot.getValue(Cart.class);
                     if (cart.getUser_id().equalsIgnoreCase(userId)) {
-                        Log.d(TAG, "!!!!!!!!!!!" + cart.toString());
                         //myCart하나씩 뽑아와서 product_id 구하기
                         String prdtId = cart.getProduct_id();
 
@@ -139,7 +146,6 @@ public class MyCartActivity extends AppCompatActivity implements NavigationInter
                             public void onDataChange(@NonNull DataSnapshot snapshot) {
                                 for (DataSnapshot child : snapshot.getChildren()) {
                                     Product product = child.getValue(Product.class);
-                                    Log.d(TAG, "!!!product: " + product.toString());
 
                                     //(추가) PrdtImages 테이블에서 product_id로 상품이미지 구하기
 

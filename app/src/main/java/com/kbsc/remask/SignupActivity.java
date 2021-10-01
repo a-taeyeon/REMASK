@@ -44,6 +44,9 @@ public class SignupActivity extends AppCompatActivity {
 
         firebaseAuth = FirebaseAuth.getInstance();
         dbRef = FirebaseDatabase.getInstance().getReference();
+        if(firebaseAuth.getCurrentUser() != null){
+            FirebaseAuth.getInstance().signOut();
+        }
 
         etName = (EditText)findViewById(R.id.etSignup_name);
         etEmail = (EditText)findViewById(R.id.etSignup_email);

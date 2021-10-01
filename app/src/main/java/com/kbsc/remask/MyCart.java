@@ -54,4 +54,14 @@ public class MyCart implements Serializable {
     public void setSelected(boolean selected) {
         isSelected = selected;
     }
+
+    @Override
+    public String toString() {
+        return "MyCart{" +
+                "prdtName='" + prdtName + '\'' +
+                ", prdtAbbr='" + prdtAbbr + '\'' +
+                ", price=" + price +
+                ", isSelected=" + isSelected +
+                '}';
+    }
 }

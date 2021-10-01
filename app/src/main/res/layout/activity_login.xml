@@ -67,6 +67,7 @@
                         android:layout_height="wrap_content"
                         android:layout_gravity="center_vertical"
                         android:layout_weight="1"
+                        android:paddingRight="8dp"
                         app:srcCompat="@drawable/user" />
 
                     <EditText
@@ -96,6 +97,7 @@
                         android:layout_height="wrap_content"
                         android:layout_gravity="center_vertical"
                         android:layout_weight="1"
+                        android:paddingRight="8dp"
                         app:srcCompat="@drawable/lock" />
 
                     <EditText
@@ -124,7 +126,7 @@
                     android:id="@+id/btnLogin_login"
                     android:layout_width="120dp"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="70dp"
+                    android:layout_marginTop="50dp"
                     android:background="@drawable/btn_shape"
                     android:fontFamily="@font/notosanskr_bold"
                     android:text="로그인"
@@ -136,7 +138,7 @@
                     android:id="@+id/textView"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="30dp"
+                    android:layout_marginTop="3dp"
                     android:fontFamily="@font/notosanskr_regular"
                     android:gravity="center"
                     android:text="처음이신가요?"
